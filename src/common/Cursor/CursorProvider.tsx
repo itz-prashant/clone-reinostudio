@@ -1,4 +1,3 @@
-// components/cursor/CursorProvider.tsx
 "use client";
 
 import React, { createContext, useContext, useEffect, useRef } from "react";
@@ -18,7 +17,7 @@ export default function CursorProvider({ children }: { children: React.ReactNode
   const cursorRef = useRef<HTMLDivElement | null>(null);
   const xSet = useRef<any>(null);
   const ySet = useRef<any>(null);
-  const pointer = useRef({ x: 0, y: 0 });
+  // const pointer = useRef({ x: 0, y: 0 });
 
   // OVERSIZED CLEAN CURSOR TRICK
   const variants: Record<
@@ -52,7 +51,7 @@ export default function CursorProvider({ children }: { children: React.ReactNode
     xSet.current = gsap.quickSetter(el, "x", "px");
     ySet.current = gsap.quickSetter(el, "y", "px");
 
-    let half = 75; // 150 / 2
+    const half = 75; // 150 / 2
 
     const move = (e: MouseEvent) => {
       xSet.current(e.clientX - half);
