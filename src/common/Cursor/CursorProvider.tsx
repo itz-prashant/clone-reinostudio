@@ -27,8 +27,8 @@ export default function CursorProvider({ children }: { children: React.ReactNode
   > = {
     default: { scale: 0.2, background: "#ffffff", mixBlend: "difference", opacity: 1 },
     hover: { scale: 0.6, background: "#ffffff", mixBlend: "difference", opacity: 1 },
-    menu: { scale: 2, background: "#ffffff", mixBlend: "difference", opacity: 1 },
-    big: { scale: 4, background: "#ffffff", mixBlend: "difference", opacity: 1 },
+    menu: { scale: 1.2, background: "#ffffff", mixBlend: "difference", opacity: 1 },
+    big: { scale: 3.4, background: "#ffffff", mixBlend: "difference", opacity: 1 },
     hidden: { scale: 0.05, background: "#ffffff", mixBlend: "difference", opacity: 0 },
   };
 
