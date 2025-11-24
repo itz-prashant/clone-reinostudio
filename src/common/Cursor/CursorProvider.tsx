@@ -17,13 +17,8 @@ export default function CursorProvider({ children }: { children: React.ReactNode
   const cursorRef = useRef<HTMLDivElement | null>(null);
   const xSet = useRef<any>(null);
   const ySet = useRef<any>(null);
-  // const pointer = useRef({ x: 0, y: 0 });
 
-  // OVERSIZED CLEAN CURSOR TRICK
-  const variants: Record<
-    CursorType,
-    { scale: number; background: string; mixBlend: string; opacity?: number }
-  > = {
+  const variants = {
     default: { scale: 0.2, background: "#ffffff", mixBlend: "difference", opacity: 1 },
     hover: { scale: 0.6, background: "#ffffff", mixBlend: "difference", opacity: 1 },
     menu: { scale: 1.2, background: "#ffffff", mixBlend: "difference", opacity: 1 },
@@ -35,7 +30,6 @@ export default function CursorProvider({ children }: { children: React.ReactNode
     const el = cursorRef.current;
     if (!el) return;
 
-    // REAL SIZE BIG — LOOKS CRISP AFTER SCALING
     el.style.width = "150px";
     el.style.height = "150px";
     el.style.borderRadius = "999px";
@@ -51,15 +45,21 @@ export default function CursorProvider({ children }: { children: React.ReactNode
     xSet.current = gsap.quickSetter(el, "x", "px");
     ySet.current = gsap.quickSetter(el, "y", "px");
 
-    const half = 75; // 150 / 2
+    const half = 75;
 
     const move = (e: MouseEvent) => {
-      xSet.current(e.clientX - half);
-      ySet.current(e.clientY - half);
-    };
+    gsap.to(el, {
+      x: e.clientX - half,
+      y: e.clientY - half,
+      duration: 1.2,
+      ease: "power3.out",
+    });
+  };
 
     window.addEventListener("mousemove", move, { passive: true });
-    document.documentElement.style.cursor = "none";
+
+    // 👇 FIX — real cursor visible now
+    document.documentElement.style.cursor = "default";
 
     return () => {
       window.removeEventListener("mousemove", move);
@@ -85,26 +85,6 @@ export default function CursorProvider({ children }: { children: React.ReactNode
 
     el.style.mixBlendMode = v.mixBlend;
   };
-
-  // auto detect .cursor-hover elements
-  useEffect(() => {
-    const bind = () => {
-      document.querySelectorAll(".cursor-hover").forEach((el: any) => {
-        if (el._cursorBind) return;
-        el._cursorBind = true;
-
-        el.addEventListener("mouseenter", () => setCursor("hover"));
-        el.addEventListener("mouseleave", () => setCursor("default"));
-      });
-    };
-
-    bind();
-
-    const mo = new MutationObserver(bind);
-    mo.observe(document.body, { childList: true, subtree: true });
-
-    return () => mo.disconnect();
-  }, []);
 
   return (
     <CursorContext.Provider value={{ setCursor }}>
