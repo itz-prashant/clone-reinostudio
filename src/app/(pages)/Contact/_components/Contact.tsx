@@ -96,7 +96,7 @@ export default function Contact() {
         <form className="w-full max-w-[900px] animate-up">
           
           <div className="mb-12">
-            <p className="text-lg text-gray-400 mb-5 font-medium">I'm interested in...</p>
+            <p className="text-lg text-gray-400 mb-5 font-medium">I&apos;m interested in...</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {interests.map((item) => (
                 <HoverCursor variant="hover" key={item}>

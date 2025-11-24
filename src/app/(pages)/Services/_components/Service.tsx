@@ -98,7 +98,7 @@ export default function Service() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full bg-white text-black min-h-screen">
+    <div ref={containerRef} className="w-full bg-white text-black">
       
       {/* --- 1. HERO SECTION --- */}
       <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-32 pb-20">
@@ -115,9 +115,9 @@ export default function Service() {
           <HoverCursor variant="text">
             <p>
               At Reino, we believe the best ideas are born from collaboration. 
-              That's why we work side by side with other creative agencies, acting as a 
+              That&apos;s why we work side by side with other creative agencies, acting as a 
               natural extension of their teams. We get into the flow, understand the culture, 
-              and wear the project's jersey as if it were our own.
+              and wear the project&apos;s jersey as if it were our own.
             </p>
           </HoverCursor>
         </div>
@@ -125,9 +125,11 @@ export default function Service() {
                 {/* TEAM IMAGE */}
         <div className="w-full h-[40vh] md:h-[70vh] bg-gray-200 rounded-sm overflow-hidden mb-32 animate-scroll relative">
             
-            <img 
+            <Image
               src="/assets/Service_image/team.jpg" 
               alt="Team Illustration" 
+              width={600}
+              height={600}
               className="w-full h-full object-cover"
             />
 
@@ -218,12 +220,12 @@ export default function Service() {
         <div className="flex flex-col md:flex-row gap-10 text-lg text-gray-500 leading-relaxed">
             <div className="md:w-1/2">
                 <p>
-                    Our goal is to simplify, add value, and amplify. Every delivery is born from a collaborative process, with the sensitivity to understand the agency's needs and the responsibility to deliver with quality, consistency, and on time.
+                    Our goal is to simplify, add value, and amplify. Every delivery is born from a collaborative process, with the sensitivity to understand the agency&apos;s needs and the responsibility to deliver with quality, consistency, and on time.
                 </p>
             </div>
             <div className="md:w-1/2">
                 <p>
-                    For us, working with other creative teams is not just about execution — it's about building together, as part of the same story.
+                    For us, working with other creative teams is not just about execution — it&apos;s about building together, as part of the same story.
                 </p>
             </div>
         </div>
@@ -236,7 +238,7 @@ export default function Service() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 mb-20 text-center animate-scroll">
             <HoverCursor variant="big">
                 <h2 className="text-[8vw] md:text-[4.5rem] font-bold leading-[0.95] tracking-tight">
-                    See how we've helped<br />
+                    See how we&apos;ve helped<br />
                     other brands go further
                 </h2>
             </HoverCursor>
@@ -248,9 +250,11 @@ export default function Service() {
                 <div key={index} className="w-full h-[50vh] md:h-[80vh] bg-gray-300 relative animate-scroll overflow-hidden">
                     
                     {/* THIS IS THE IMAGE CODE */}
-                    <img 
+                    <Image
                       src={img} 
                       alt="Project" 
+                      width={600}
+                      height={600}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     />
 
@@ -260,14 +264,14 @@ export default function Service() {
 
         {/* View All Button */}
         <div className="flex justify-center mt-20 animate-scroll">
-            <HoverCursor variant="menu">
-                <button className="bg-black text-white px-8 py-4 rounded-full font-bold text-sm flex items-center gap-3 hover:scale-105 transition-transform duration-300">
+          
+                <button className="bg-black text-white px-8 py-4 rounded-full font-bold text-sm flex items-center gap-3">
                     View All Work 
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </button>
-            </HoverCursor>
+
         </div>
 
       </section>

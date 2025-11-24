@@ -1,5 +1,9 @@
 import { useCursor } from "@/common/Cursor/CursorProvider";
 import Video from "./Video";
+import { IoLogoInstagram } from "react-icons/io5";
+import { RiFacebookBoxLine } from "react-icons/ri";
+import { FaTwitter } from "react-icons/fa";
+import { CiLinkedin } from "react-icons/ci";
 
 const Home = () => {
   const { setCursor } = useCursor();
@@ -76,9 +80,24 @@ const Home = () => {
         </div>
       </section>
       <section className="bg-white h-[50vh]">
-        <div className="w-[40%] h-10 bg-red-300 right-0 absolute">
-            <div className="flex items-center">
-
+        <div className="w-[40%] right-0 absolute mt-5">
+            <div className="flex items-center justify-center gap-12">
+                <IoLogoInstagram size={36} 
+                            onMouseEnter={() => setCursor("hover")}
+            onMouseLeave={() => setCursor("default")}
+                />
+                <RiFacebookBoxLine size={36} 
+                            onMouseEnter={() => setCursor("hover")}
+            onMouseLeave={() => setCursor("default")}
+                />
+                <FaTwitter size={36} 
+                            onMouseEnter={() => setCursor("hover")}
+            onMouseLeave={() => setCursor("default")}
+                />
+                <CiLinkedin size={36} 
+                            onMouseEnter={() => setCursor("hover")}
+            onMouseLeave={() => setCursor("default")}
+                />
             </div>
         </div>
       </section>
