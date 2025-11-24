@@ -43,12 +43,12 @@ export default function Contact() {
   return (
     <div ref={containerRef} className="w-full bg-white text-black min-h-screen">
       
-      <section className="max-w-[1200px] mx-auto px-6 md:px-10 pt-10 pb-20">
+      <section className="max-w-[1400px] mx-auto  pt-10 pb-20">
           
         {/* --- HEADLINE --- */}
         <div className="mb-16 animate-up">
           <HoverCursor variant="big">
-            <h1 className="text-[3.5rem] md:text-[5.5rem] font-bold leading-[1] tracking-tight text-black">
+            <h1 className="text-[3.5rem] md:text-[7rem] font-bold leading-[1] tracking-tight text-black">
               Hey! Tell us all<br />
               the things
             </h1>
@@ -57,12 +57,12 @@ export default function Contact() {
 
         {/* --- ADDRESS & INFO --- */}
         <div className="mb-20 animate-up">
-          <p className="text-base md:text-lg font-semibold mb-8 leading-[1.6] text-black">
+          <p className="text-base md:text-xl font-semibold mb-8 leading-[1.6] text-black">
             Avenida San Martin. 830, 102<br />
             Leblon - Rio de Janeiro
           </p>
 
-          <div className="flex flex-col gap-4 text-base md:text-lg font-semibold">
+          <div className="flex flex-col gap-4 text-base md:text-xl font-semibold">
             {/* Email */}
             <HoverCursor variant="hover">
               <a href="mailto:contact@reinostudio.com" className="flex items-center gap-4 w-fit group text-black">
@@ -99,7 +99,7 @@ export default function Contact() {
             <p className="text-lg text-gray-400 mb-5 font-medium">I&apos;m interested in...</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {interests.map((item) => (
-                <HoverCursor variant="hover" key={item}>
+                <div key={item}>
                   <button
                     type="button"
                     onClick={() => toggleInterest(item)}
@@ -110,7 +110,7 @@ export default function Contact() {
                   >
                     {item}
                   </button>
-                </HoverCursor>
+                </div>
               ))}
             </div>
           </div>
