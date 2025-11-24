@@ -7,10 +7,24 @@ const Footer = () => {
     <div className="bg-black h-[100vh] text-white flex items-center justify-center gap-20">
       <div className="flex w-full max-w-[1400px] mx-auto items-start">
         <div className="w-[65%] flex flex-col">
-          <h1 className="text-[14rem] font-extrabold"
-            onMouseEnter={() => setCursor("big")}
-            onMouseLeave={() => setCursor("default")}
-          >SAY HI!</h1>
+         <h1
+  className="text-[14rem] font-extrabold relative inline-block
+             after:content-[''] after:absolute after:left-0 after:bottom-[30px]
+             after:h-[12px] after:w-0 after:bg-white 
+             after:transition-all after:ease-in-out after:duration-1000 
+             hover:after:w-full
+             group"
+  onMouseEnter={() => setCursor("big")}
+  onMouseLeave={() => setCursor("default")}
+>
+  <span
+    className="block group-hover:after:w-full
+               group-[not(:hover)]:after:left-full
+               after:transition-all after:duration-500 after:ease-in-out"
+  >
+    SAY HI!
+  </span>
+</h1>
           <div className="flex flex-col"
            onMouseEnter={() => setCursor("menu")}
           onMouseLeave={() => setCursor("default")}
