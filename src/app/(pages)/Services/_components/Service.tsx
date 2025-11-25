@@ -57,7 +57,7 @@ const collaborationSteps = [
   }
 ];
 
-// Placeholder images - You should replace src with your actual image paths
+// Placeholder images
 const projects = [
   "/assets/Service_image/project2.jpg",
   "/assets/Service_image/project3.webp",
@@ -71,7 +71,6 @@ export default function Service() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       
-      // Animate elements as they scroll into view
       const elements = gsap.utils.toArray(".animate-scroll");
       
       elements.forEach((el: any) => {
@@ -85,7 +84,7 @@ export default function Service() {
             ease: "power3.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 85%", // Animation starts when element is 85% down the viewport
+              start: "top 85%", 
             },
           }
         );
@@ -97,20 +96,21 @@ export default function Service() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full bg-white text-black">
+    <div ref={containerRef} className="w-full bg-white text-black overflow-hidden">
       
       {/* --- 1. HERO SECTION --- */}
-      <section className="max-w-[1400px] mx-auto pt-32 pb-20">
-        <div className="text-center mb-24 animate-scroll">
+      <section className="max-w-[1400px] mx-auto px-6 md:px-10 pt-28 md:pt-32 pb-16 md:pb-20">
+        <div className="text-center mb-16 md:mb-24 animate-scroll">
           <HoverCursor variant="big">
-            <h1 className="text-[5rem] md:text-[7.2rem] font-bold leading-[0.95] tracking-tight mx-auto">
+            {/* RESPONSIVE FONT: text-[11vw] for mobile, text-[7.2rem] for desktop */}
+            <h1 className="text-[11vw] md:text-[7.2rem] font-bold leading-[1] md:leading-[0.95] tracking-tight mx-auto">
               We are a design studio that loves to create together.
             </h1>
           </HoverCursor>
         </div>
 
         {/* Small text block */}
-        <div className="max-w-[580px] text-lg md:text-2xl text-gray-900 leading-relaxed mb-20 animate-scroll">
+        <div className="max-w-[580px] text-lg md:text-2xl text-gray-900 leading-relaxed mb-16 md:mb-20 animate-scroll mx-auto md:mx-0">
           <HoverCursor variant="text">
             <p>
               At Reino, we believe the best ideas are born from collaboration. 
@@ -121,30 +121,29 @@ export default function Service() {
           </HoverCursor>
         </div>
       </section>
-                      {/* TEAM IMAGE */}
-        <div className="w-fulloverflow-hidden  animate-scroll relative">
-            
-            <Image
-              src="/assets/Service_image/team.jpg" 
-              alt="Team Illustration" 
-              width={900}
-              height={600}
-              className="w-full h-full object-cover"
-            />
 
-        </div>
+      {/* TEAM IMAGE (Responsive Height) */}
+      <div className="w-full animate-scroll relative mb-20 md:mb-32 h-[40vh] md:h-screen">
+          <Image
+            src="/assets/Service_image/team.jpg" 
+            alt="Team Illustration" 
+            width={1920}
+            height={1080}
+            className="w-full h-full object-cover"
+          />
+      </div>
 
 
       {/* --- 2. "PART OF YOUR TEAM" SECTION --- */}
-      <section className="max-w-[1400px] mx-auto pt-32  mb-32 animate-scroll">
-        <div >
+      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mb-20 md:mb-32 animate-scroll">
+        <div>
             <HoverCursor variant="big">
-                <h2 className="text-[5vw] md:text-[7rem] font-bold leading-[1] tracking-tight mb-10">
+                <h2 className="text-[10vw] md:text-[7rem] font-bold leading-[1] tracking-tight mb-8 md:mb-10">
                     Part of your team,<br />
                     from start to finish
                 </h2>
             </HoverCursor>
-            <div className="max-w-2xl text-2xl text-gray-900 leading-relaxed">
+            <div className="max-w-2xl text-xl md:text-2xl text-gray-900 leading-relaxed">
                 <p>
                     More than providers, we are partners. This means we take part in the entire process
                     — from strategic conception to final delivery — bringing our expertise in UX, UI, 
@@ -157,31 +156,26 @@ export default function Service() {
 
 
       {/* --- 3. HOW WE COLLABORATE (Diagram + List) --- */}
-      <section className="max-w-[1400px] mx-auto mb-32">
+      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mb-20 md:mb-32">
         
-        <div className="mb-20 animate-scroll flex items-center justify-end">
+        <div className="mb-12 md:mb-20 animate-scroll flex items-center justify-start md:justify-end">
           <HoverCursor variant="big">
-<h2 className="text-[5rem] pr-10 md:text-[7rem] font-bold leading-[0.9]  text-left">
+             <h2 className="text-[11vw] md:text-[7rem] pr-0 md:pr-10 font-bold leading-[0.9] text-left md:text-right">
                 How we<br />collaborate
              </h2>
           </HoverCursor>
-             
         </div>
 
-        <div className="flex flex-col md:flex-row gap-20 items-start">
+        {/* Flex Column on Mobile, Row on Desktop */}
+        <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
             
             {/* LEFT: Geometric Diagram */}
-            <div className="w-full md:w-1/2 sticky top-32 animate-scroll">
-                 <div className="w-full relative aspect-square border border-gray-200  flex items-center justify-center p-10">
-                    {/* Custom SVG Diagram based on screenshot */}
+            <div className="w-full md:w-1/2 md:sticky md:top-32 animate-scroll">
+                 <div className="w-full relative aspect-square border border-gray-200 flex items-center justify-center p-6 md:p-10">
                     <svg viewBox="0 0 100 100" className="w-full h-full text-black opacity-80" stroke="currentColor" strokeWidth="0.5" fill="none">
-                        {/* Square */}
                         <rect x="10" y="10" width="80" height="80" />
-                        {/* Circle */}
                         <circle cx="50" cy="50" r="40" />
-                        {/* Triangle */}
                         <path d="M50 10 L90 90 H10 Z" />
-                        {/* Cross Lines */}
                         <line x1="50" y1="10" x2="50" y2="90" />
                         <line x1="10" y1="50" x2="90" y2="50" />
                     </svg>
@@ -189,17 +183,17 @@ export default function Service() {
             </div>
 
             {/* RIGHT: List */}
-            <div className="w-full md:w-1/2 flex flex-col gap-16">
+            <div className="w-full md:w-1/2 flex flex-col gap-12 md:gap-16">
                 {collaborationSteps.map((step) => (
                     <div key={step.id} className="animate-scroll">
                         <HoverCursor variant="hover">
-                            <div className="flex items-start gap-6">
-                                <div className="mt-1">
+                            <div className="flex items-start gap-5 md:gap-6">
+                                <div className="mt-1 shrink-0">
                                     {step.icon}
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-extrabold mb-3">{step.title}</h3>
-                                    <p className="text-gray-900 leading-relaxed text-xl">
+                                    <h3 className="text-xl md:text-2xl font-extrabold mb-3">{step.title}</h3>
+                                    <p className="text-gray-900 leading-relaxed text-lg md:text-xl">
                                         {step.description}
                                     </p>
                                 </div>
@@ -214,19 +208,21 @@ export default function Service() {
 
 
       {/* --- 4. WHY WORK WITH US --- */}
-      <section className="max-w-[1400px] mx-auto  mb-32 animate-scroll">
+      <section className="max-w-[1400px] mx-auto px-6 md:px-10 mb-20 md:mb-32 animate-scroll">
         <HoverCursor variant="big">
-          <h2 className="text-[5rem] md:text-[7rem] font-bold leading-[1] tracking-tight mb-12">
+          <h2 className="text-[10vw] md:text-[7rem] font-bold leading-[1] tracking-tight mb-8 md:mb-12">
             Why work with us
-        </h2>
+          </h2>
         </HoverCursor>
-        <div className="flex flex-col md:flex-row gap-10 text-lg text-gray-900 leading-relaxed">
-            <div className="md:w-1/2 text-2xl">
+        
+        {/* Flex Column on Mobile */}
+        <div className="flex flex-col md:flex-row gap-8 md:gap-10 text-lg md:text-2xl text-gray-900 leading-relaxed">
+            <div className="md:w-1/2">
                 <p>
                     Our goal is to simplify, add value, and amplify. Every delivery is born from a collaborative process, with the sensitivity to understand the agency&apos;s needs and the responsibility to deliver with quality, consistency, and on time.
                 </p>
             </div>
-            <div className="md:w-1/2 text-2xl">
+            <div className="md:w-1/2">
                 <p>
                     For us, working with other creative teams is not just about execution — it&apos;s about building together, as part of the same story.
                 </p>
@@ -236,45 +232,40 @@ export default function Service() {
 
 
       {/* --- 5. PROJECTS SHOWCASE --- */}
-      <section className="w-full mb-32">
+      <section className="w-full mb-20 md:mb-32">
         
-        <div className="max-w-[1400px] mx-auto mb-20 text-center animate-scroll">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-12 md:mb-20 text-center animate-scroll">
             <HoverCursor variant="big">
-                <h2 className="text-[5rem] md:text-[8rem] font-bold leading-[0.95] tracking-tight">
+                <h2 className="text-[10vw] md:text-[8rem] font-bold leading-[0.95] tracking-tight">
                     See how we&apos;ve helped<br />
                     other brands go further
                 </h2>
             </HoverCursor>
         </div>
 
-                {/* Images Stack */}
-        <div className="flex flex-col gap-10 max-w-[1400px] mx-auto">
+        {/* Images Stack */}
+        <div className="flex flex-col gap-6 md:gap-10 max-w-[1400px] mx-auto px-6 md:px-10">
             {projects.map((img, index) => (
-                <div key={index} className="w-full h-[50vh] md:h-[80vh] relative animate-scroll overflow-hidden">
-                    
-                    {/* THIS IS THE IMAGE CODE */}
+                <div key={index} className="w-full h-[40vh] md:h-[80vh] relative animate-scroll overflow-hidden">
                     <Image
                       src={img} 
                       alt="Project" 
-                      width={600}
-                      height={600}
+                      width={1200}
+                      height={1200}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     />
-
                 </div>
             ))}
         </div>
 
         {/* View All Button */}
-        <div className="flex justify-center pt-20 animate-scroll">
-          
-                <button className="bg-black text-white px-8 py-4 rounded-full font-bold text-sm flex items-center gap-3">
-                    View All Work 
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
-
+        <div className="flex justify-center pt-16 md:pt-20 animate-scroll">
+            <button className="bg-black text-white px-8 py-4 rounded-full font-bold text-sm flex items-center gap-3 hover:scale-105 transition-transform duration-300">
+                View All Work 
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
         </div>
 
       </section>
