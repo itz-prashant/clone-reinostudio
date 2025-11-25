@@ -10,25 +10,27 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden">
-      <section className="bg-[#2b2f31] h-[100vh] w-full flex items-center relative">
+      <section className="bg-[#2b2f31] min-h-[100vh] w-full flex items-center relative">
         <div className="max-w-[1400px] mx-auto w-full">
           <h1
-            className="absolute top-20 text-white font-bold leading-[1.1]
-                     text-[5rem] md:text-[7rem] lg:text-[7.6rem] text-right"
+            className="absolute sm:top-20 top-0 text-white font-bold leading-[1.1] text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[6rem] xl:text-[7.5rem] px-5 md:text-right text-center"
             onMouseEnter={() => setCursor("big")}
             onMouseLeave={() => setCursor("default")}
           >
             We craft {/* INLINE VIDEO FIX */}
-            <span className="inline-block align-middle h-[7vw] w-[15vw] rounded-full overflow-hidden -mt-[1rem] ">
+            <span className="md:inline-block hidden align-middle h-[7vw] w-[15vw] rounded-full overflow-hidden -mt-[1rem] ">
               <Video />
             </span>{" "}
             identity
             <br />
             experience and presence.
           </h1>
-          <div className="w-full h-[550px] absolute">
-            <div className="absolute h-[550px] w-[50%]">
-              <div className="text-white flex items-center justify-between py-5">
+          <span className="inline-block md:hidden align-middle min-h-[7vw] min-w-[15vw] rounded overflow-hidden px-5">
+              <Video />
+            </span>{" "}
+          <div className="md:w-[90%] w-full h-[550px] absolute ">
+            <div className="absolute h-[550px] w-[50%] hidden md:block">
+              <div className="text-white flex items-center justify-bet3een py-5">
                 <div
                   className="cursor-pointer"
                   onMouseEnter={() => setCursor("hidden")}
@@ -63,9 +65,9 @@ const Home = () => {
                 <Video />
               </div>
             </div>
-            <div className="w-[43%] right-28 absolute top-[38%]">
+            <div className="md:w-[43%] w-full right-0 absolute md:bottom-36 mt-10">
               <p
-                className="text-2xl max-w-2xl text-right text-white"
+                className="md:text-xl text-lg lg:text-2xl text-right text-white px-5"
                 onMouseEnter={() => setCursor("menu")}
                 onMouseLeave={() => setCursor("default")}
               >
@@ -80,9 +82,9 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white h-[120vh]">
-        <div className="w-[40%] right-0 absolute mt-5">
-          <div className="flex items-center justify-center gap-12">
+      <section className="bg-white h-[140vh] md:h-[120vh]">
+        <div className="md:w-[40%] w-full right-0 absolute mt-5">
+          <div className="flex items-center justify-center gap-12 shrink-0">
             <IoLogoInstagram
               size={36}
               onMouseEnter={() => setCursor("hover")}
@@ -107,10 +109,10 @@ const Home = () => {
         </div>
         <div className="w-full">
           <div className="relative w-full h-full max-w-[1400px] mx-auto">
-            <div className="absolute top-72">
+            <div className="absolute md:top-72 top-24 px-5">
               <div>
                 <p
-                  className="leading-[1.1] text-[5rem] md:text-[6rem] font-bold mb-18"
+                  className="leading-[1.1] text-[2rem] md:text-[3.5rem] text-[#2b2f31] lg:text-[5rem] font-bold md:mb-18 mb-8"
                   onMouseEnter={() => setCursor("big")}
                   onMouseLeave={() => setCursor("default")}
                 >
@@ -118,16 +120,18 @@ const Home = () => {
                   open up new possibilities.
                 </p>
               </div>
-              <div className="flex flex-col md:flex-row gap-10 text-lg text-gray-900 leading-relaxed">
-                <div className="md:w-1/2 text-2xl">
+              <div className="flex flex-col md:flex-row gap-10 text-lg text-black">
+                <div className="md:w-1/2 md:text-xl text-lg lg:text2xl">
                   <div className="flex flex-col gap-5">
-                    <p>
+                    <p                 onMouseEnter={() => setCursor("menu")}
+                onMouseLeave={() => setCursor("default")}>
                       At Reino Studio, we blend technology and art to create
                       innovative designs that open up new possibilities. We
                       understand that sensitivity and technique go hand in hand,
                       working together to benefit your company and customers.
                     </p>
-                    <p>
+                    <p                onMouseEnter={() => setCursor("menu")}
+                onMouseLeave={() => setCursor("default")}>
                       Specializing in digital platforms, we also work across
                       various mediums. From planning to development, we cover
                       everything from visual identity to interactive
@@ -136,8 +140,9 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
-                <div className="md:w-1/2 text-2xl">
-                  <p>
+                <div className="md:w-1/2 md:text-xl text:lg lg:text2xl">
+                  <p                 onMouseEnter={() => setCursor("menu")}
+                onMouseLeave={() => setCursor("default")}>
                     Our owners are actively involved throughout the design process, ensuring a passionate and results-driven experience. With our dedicated customer service, close collaboration, and streamlined process, we make things simple and efficient, without unnecessary bureaucracy.
                   </p>
                 </div>
