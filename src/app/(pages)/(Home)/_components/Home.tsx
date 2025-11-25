@@ -19,7 +19,7 @@ const Home = () => {
             onMouseLeave={() => setCursor("default")}
           >
             We craft {/* INLINE VIDEO FIX */}
-            <span className="inline-block align-middle h-[7vw] w-[15vw] rounded-full overflow-hidden -mt-[1rem]">
+            <span className="inline-block align-middle h-[7vw] w-[15vw] rounded-full overflow-hidden -mt-[1rem] ">
               <Video />
             </span>{" "}
             identity
@@ -64,41 +64,86 @@ const Home = () => {
               </div>
             </div>
             <div className="w-[43%] right-28 absolute top-[38%]">
-              <p className="text-2xl max-w-2xl text-right text-white"
-              onMouseEnter={() => setCursor("menu")}
-            onMouseLeave={() => setCursor("default")}
+              <p
+                className="text-2xl max-w-2xl text-right text-white"
+                onMouseEnter={() => setCursor("menu")}
+                onMouseLeave={() => setCursor("default")}
               >
-              We believe a brand is a living entity—one complete
-              with its own values, personality, and story. We are inquisitive
-              and open-minded, ensuring that creativity crowds out ego from
-              every corner of our work. We bring this singular perspective to
-              every brand story we help tell, enabling you to achieve not just
-              short-term success, but lasting, far-reaching influence.
-            </p>
+                We believe a brand is a living entity—one complete with its own
+                values, personality, and story. We are inquisitive and
+                open-minded, ensuring that creativity crowds out ego from every
+                corner of our work. We bring this singular perspective to every
+                brand story we help tell, enabling you to achieve not just
+                short-term success, but lasting, far-reaching influence.
+              </p>
             </div>
           </div>
         </div>
       </section>
-      <section className="bg-white h-[50vh]">
+      <section className="bg-white h-[120vh]">
         <div className="w-[40%] right-0 absolute mt-5">
-            <div className="flex items-center justify-center gap-12">
-                <IoLogoInstagram size={36} 
-                            onMouseEnter={() => setCursor("hover")}
-            onMouseLeave={() => setCursor("default")}
-                />
-                <RiFacebookBoxLine size={36} 
-                            onMouseEnter={() => setCursor("hover")}
-            onMouseLeave={() => setCursor("default")}
-                />
-                <FaTwitter size={36} 
-                            onMouseEnter={() => setCursor("hover")}
-            onMouseLeave={() => setCursor("default")}
-                />
-                <CiLinkedin size={36} 
-                            onMouseEnter={() => setCursor("hover")}
-            onMouseLeave={() => setCursor("default")}
-                />
+          <div className="flex items-center justify-center gap-12">
+            <IoLogoInstagram
+              size={36}
+              onMouseEnter={() => setCursor("hover")}
+              onMouseLeave={() => setCursor("default")}
+            />
+            <RiFacebookBoxLine
+              size={36}
+              onMouseEnter={() => setCursor("hover")}
+              onMouseLeave={() => setCursor("default")}
+            />
+            <FaTwitter
+              size={36}
+              onMouseEnter={() => setCursor("hover")}
+              onMouseLeave={() => setCursor("default")}
+            />
+            <CiLinkedin
+              size={36}
+              onMouseEnter={() => setCursor("hover")}
+              onMouseLeave={() => setCursor("default")}
+            />
+          </div>
+        </div>
+        <div className="w-full">
+          <div className="relative w-full h-full max-w-[1400px] mx-auto">
+            <div className="absolute top-72">
+              <div>
+                <p
+                  className="leading-[1.1] text-[5rem] md:text-[6rem] font-bold mb-18"
+                  onMouseEnter={() => setCursor("big")}
+                  onMouseLeave={() => setCursor("default")}
+                >
+                  We blend technology and art to create innovative designs that
+                  open up new possibilities.
+                </p>
+              </div>
+              <div className="flex flex-col md:flex-row gap-10 text-lg text-gray-900 leading-relaxed">
+                <div className="md:w-1/2 text-2xl">
+                  <div className="flex flex-col gap-5">
+                    <p>
+                      At Reino Studio, we blend technology and art to create
+                      innovative designs that open up new possibilities. We
+                      understand that sensitivity and technique go hand in hand,
+                      working together to benefit your company and customers.
+                    </p>
+                    <p>
+                      Specializing in digital platforms, we also work across
+                      various mediums. From planning to development, we cover
+                      everything from visual identity to interactive
+                      installations. What sets us apart is our personalized
+                      approach.
+                    </p>
+                  </div>
+                </div>
+                <div className="md:w-1/2 text-2xl">
+                  <p>
+                    Our owners are actively involved throughout the design process, ensuring a passionate and results-driven experience. With our dedicated customer service, close collaboration, and streamlined process, we make things simple and efficient, without unnecessary bureaucracy.
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
       </section>
     </div>
