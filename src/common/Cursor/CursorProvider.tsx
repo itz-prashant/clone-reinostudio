@@ -3,7 +3,21 @@
 import React, { createContext, useContext, useEffect, useRef } from "react";
 import gsap from "gsap";
 
-type CursorType = "default" | "hover" | "menu" | "big" | "hidden" | string;
+type CursorType =
+  | "default"
+  | "hover"
+  | "menu"
+  | "big"
+  | "hidden"
+  | (string & {}); // allow custom keys safely
+
+type Variant = {
+  scale: number;
+  background: string;
+  mixBlend: string;
+  opacity: number;
+};
+
 type CursorContextValue = { setCursor: (type: CursorType) => void };
 
 const CursorContext = createContext<CursorContextValue | undefined>(undefined);
@@ -15,10 +29,10 @@ export const useCursor = () => {
 
 export default function CursorProvider({ children }: { children: React.ReactNode }) {
   const cursorRef = useRef<HTMLDivElement | null>(null);
-  const xSet = useRef<any>(null);
-  const ySet = useRef<any>(null);
+const xSet = useRef<((value: number) => void) | null>(null);
+const ySet = useRef<((value: number) => void) | null>(null);
 
-  const variants = {
+  const variants: Record<string, Variant> = {
     default: { scale: 0.2, background: "#ffffff", mixBlend: "difference", opacity: 1 },
     hover: { scale: 0.6, background: "#ffffff", mixBlend: "difference", opacity: 1 },
     menu: { scale: 1.2, background: "#ffffff", mixBlend: "difference", opacity: 1 },
@@ -42,23 +56,23 @@ export default function CursorProvider({ children }: { children: React.ReactNode
     el.style.mixBlendMode = "difference";
     el.style.willChange = "transform, opacity";
 
-    xSet.current = gsap.quickSetter(el, "x", "px");
-    ySet.current = gsap.quickSetter(el, "y", "px");
+xSet.current = gsap.quickSetter(el, "x", "px") as (value: number) => void;
+ySet.current = gsap.quickSetter(el, "y", "px") as (value: number) => void;
+
 
     const half = 75;
 
     const move = (e: MouseEvent) => {
-    gsap.to(el, {
-      x: e.clientX - half,
-      y: e.clientY - half,
-      duration: 1.2,
-      ease: "power3.out",
-    });
-  };
+      gsap.to(el, {
+        x: e.clientX - half,
+        y: e.clientY - half,
+        duration: 1.2,
+        ease: "power3.out",
+      });
+    };
 
     window.addEventListener("mousemove", move, { passive: true });
 
-    // 👇 FIX — real cursor visible now
     document.documentElement.style.cursor = "default";
 
     return () => {
@@ -71,7 +85,7 @@ export default function CursorProvider({ children }: { children: React.ReactNode
     const el = cursorRef.current;
     if (!el) return;
 
-    const v = variants[type] || variants.default;
+    const v = variants[type] ?? variants.default; 
 
     gsap.killTweensOf(el);
 
